@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header/>
-    <AddTodo v-on:add-todo="addTodo"/>
-    <Todos v-bind:todos="todos"/>
+      <AddTodo v-on:add-todo="addTodo"/>
+      <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo"  v-on:edit-todo="editTodo"/>
   </div>
 </template>
 
@@ -42,6 +42,13 @@ export default {
   methods: {
     addTodo(newTodoObj) {
       this.todos = [...this.todos, newTodoObj];
+    },
+    deleteTodo(todoId) {
+      this.todos = this.todos.filter(todo => todo.id !== todoId);
+    },
+    editTodo(todoId){
+         this.todos = this.todos.filter(todo => todo.id !== todoId);
+        
     }
   }
 }
