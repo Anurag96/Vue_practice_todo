@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <h2>My todolist</h2>
+    <form @submit="addTodo">
+      <input type="text" v-model="title" name="title">
+      <button  type="submit">Add</button>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</template>
+<script>
+  import { uuid } from 'vue-uuid';
+
+export default {
+  name: 'AddTodo',
+  data() {
+    return {
+      title: '',
+      id: ''
+    }
+  },
+  methods: {
+    addTodo(e) {
+      e.preventDefault();
+      const newTodoObj = {
+        id: uuid.v1(),
+        title: this.title,
+        completed: false
+      }
+      
+      this.$emit('add-todo', newTodoObj);
+      this.title = '';
+    }
+  }
+}
+</script>
+<style scoped>
+</style>
