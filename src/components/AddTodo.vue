@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2>My todolist</h2>
+   <br>
     <form @submit="addTodo">
       <input type="text" v-model="title" name="title">
       <button  type="submit">Add</button>
-      <button type="submit">Add</button>
+     
     </form>
   </div>
 </template>
