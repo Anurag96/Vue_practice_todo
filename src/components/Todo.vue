@@ -24,4 +24,10 @@ export default {
   .completed {
     text-decoration: line-through;
   }
+  /* .button {border-radius: 50%;
+  } */
+  .button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
 </style>

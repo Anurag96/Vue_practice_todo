@@ -2,7 +2,7 @@
   <div>
     <br />
     <form @submit.prevent="addTodo">
-      <input type="text" v-model="title" name="title" />
+      <input type="text" required v-model="title" name="title" />
       <button v-if="id==''" type="submit">Add</button>
       <button v-if="id!=''" type="submit">update</button>
     </form>
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       title: "",
+      isValidate: true,
       id: "",
       todos: [
         {
@@ -63,15 +64,39 @@ export default {
       this.id = "";
     },
     deleteTodo(todoId) {
+ this.todos = this.todos.filter(todo => todo.id !== todoId);
       // 1 != 2
-      this.todos = this.todos.filter(todo => todo.id !== todoId);
     },
     editTodo(todo) {
       this.id = todo.id;
       this.title = todo.title;
+    },
+    checkForm(){
+      if (!this.title) {
+        this.errors.push('Title required.');
+      }
     }
   }
 };
 </script>
 <style scoped>
+button {
+  width: 10%;
+  
+}
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  
+}
+input {
+  width: 20%;
+  background-color: rgb(212, 214, 213);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 </style>

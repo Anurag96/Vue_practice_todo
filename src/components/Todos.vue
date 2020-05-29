@@ -1,10 +1,14 @@
 <template>
     <div>
-        <ul>
-      <li v-bind:key="todo.id" v-for="todo in todos">
-       <Todo v-bind:todo="todo" v-on:delete-todo="$emit('delete-todo', todo.id)" v-on:edit-todo="$emit('edit-todo', todo)"/>
-      </li>
-    </ul>
+        <br>
+    <table>
+        <tr v-bind:key="todo.id" v-for="todo in todos">
+                <Todo v-bind:todo="todo" 
+                v-on:delete-todo="$emit('delete-todo', todo.id)" 
+                v-on:edit-todo="$emit('edit-todo', todo)"
+                />
+        </tr>
+    </table>
     </div>
 </template>
 
@@ -18,8 +22,22 @@ export default {
         "todos"
     ]
     
+    
 }
 </script>
 <style scoped>
-
+table { 
+            border-collapse: collapse; 
+            width: 20%; 
+        } 
+          
+        th, td { 
+            padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+        } 
+          
+        tr:nth-child(odd) { 
+            background-color: Lightgreen; 
+        } 
 </style>

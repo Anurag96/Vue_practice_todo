@@ -1,24 +1,33 @@
-# vue-cli-practice
+* Convert ul.li to table.tr
 
-## Project setup
 ```
-npm install
-```
+<table>
+    <thead>
+        <tr>
+            <th>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+    <tbody>
+        <tr>
+            <td>
 
-### Compiles and minifies for production
+    <tfoot>
+        <tr>
+            <td>
+            
 ```
-npm run build
-```
+* Validation
+* Delete confirmation
+* Reset/cancel to go back on add todo state
 
-### Lints and fixes files
-```
-npm run lint
-```
+* Table
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+|Checkbox|Title|Status|Action|
+|Checkbox|test |Active| edit/delete
+
+* Add Todo ---------    Edit Todo
+* Title --------------        Title
+* Textbox-----------      Textbox
+* Error---------------         Error
+
+
+* Add   --------------- Update/ Cancel
