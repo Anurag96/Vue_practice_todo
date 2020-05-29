@@ -31,7 +31,7 @@ table {
             width: 20%; 
         } 
           
-        th, td { 
+        td { 
             padding: 10px;
         border: 1px solid black;
         border-collapse: collapse;
