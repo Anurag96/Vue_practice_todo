@@ -5,6 +5,7 @@
       <input type="text" v-model="title" name="title" />
       <button v-if="id==''" type="submit">Add</button>
       <button v-if="id!=''" type="submit">update</button>
+      <button v-on:Click="resetTodo" type="submit">Edit/Reset</button>
       <br>
       <span v-if="!isValidate"> *Please enter a valid field</span>
     </form>
@@ -46,7 +47,7 @@ export default {
   },
   methods: {
     addTodo() {
-      if(!this.title=="" ){
+      if(!this.title.trim()=="" ){
       if (this.id) {
         this.todos.map(
           obj=>{
@@ -76,6 +77,10 @@ export default {
   this.todos = this.todos.filter(todo => todo.id !== todoId);
 }
     },
+    resetTodo(){
+      this.title = "";
+      this.id = "";
+    },
     editTodo(todo) {
       this.id = todo.id;
       this.title = todo.title;
@@ -99,14 +104,14 @@ button:hover {
   
 }
 input {
-  width: 20%;
-  background-color: rgb(212, 214, 213);
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+     width: 20%;
+    /* background-color: rgb(212, 214, 213); */
+    /* color: white; */
+    padding: 14px 20px;
+    margin: 8px 0;
+    /* border: none; */
+    border-radius: 4px;
+    cursor: pointer;
 }
 span{
   color: crimson;
