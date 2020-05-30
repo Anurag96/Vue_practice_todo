@@ -4,10 +4,10 @@
     <form @submit.prevent="addTodo">
       <input type="text" v-model="title" name="title" /> &nbsp;&nbsp;
       <button v-if="id==''" type="submit">Add</button>
-      <button v-if="id!=''" type="submit">update</button> &nbsp;&nbsp;
+      <button v-if="id!=''" type="submit">Update</button> &nbsp;&nbsp;
       <button v-on:click="resetTodo()">Cancel</button>
       <br>
-      <span v-if="!isValidate"> *Please enter a valid field</span>
+      <span v-if="!isValidate"> *Please enter something to the list</span>
     </form>
     <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" v-on:edit-todo="editTodo" />
   </div>
@@ -80,6 +80,9 @@ export default {
     resetTodo(){
       this.title = "";
       this.id = "";
+      if(this.title==""&&this.id==""){
+      this.isValidate=false
+      }
     },
     editTodo(todo) {
       this.id = todo.id;
