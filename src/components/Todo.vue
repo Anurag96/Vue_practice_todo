@@ -4,7 +4,7 @@
          <table>
          <tr>
          <td >{{ todo.title }}</td>
-         <td > <button @click="$emit('delete-todo', todo.id)">Delete</button> &nbsp;&nbsp;</td>
+         <td > <button @click="$emit('delete-todo', todo.id)">Delete</button> </td>
          <td >  <button @click="$emit('edit-todo', todo)">Edit</button> &nbsp;&nbsp;</td>
           <td ><input type="checkbox" id="checkbox" v-model="isActive">
                <span v-if="!isActive" >Status: Pending</span>

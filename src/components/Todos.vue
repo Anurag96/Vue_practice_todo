@@ -1,6 +1,7 @@
 <template>
     <div>
         <br>
+        <TitleHeader></TitleHeader>
     <table>
         <tr v-bind:key="todo.id" v-for="todo in todos">
                 <Todo v-bind:todo="todo" 
@@ -15,9 +16,11 @@
 
 <script>
 import Todo from './Todo';
+import TitleHeader from './TitleHeader.vue';
+
 export default {
     name:'Todos',
-    components:{Todo},
+    components:{Todo,TitleHeader},
     props: [
         "todos"
     ]
@@ -40,4 +43,9 @@ table {
         tr:nth-child(odd) { 
             background-color: Lightgreen; 
         } 
+        tr, td, th{
+    border:1px solid green;
+    text-align: center;
+    text-size-adjust: 0.58;
+}
 </style>
