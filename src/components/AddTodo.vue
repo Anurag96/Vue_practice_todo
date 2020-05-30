@@ -2,10 +2,10 @@
   <div>
     <br />
     <form @submit.prevent="addTodo">
-      <input type="text" v-model="title" name="title" />
+      <input type="text" v-model="title" name="title" /> &nbsp;&nbsp;
       <button v-if="id==''" type="submit">Add</button>
-      <button v-if="id!=''" type="submit">update</button>
-      <button v-on:Click="resetTodo" type="submit">Edit/Reset</button>
+      <button v-if="id!=''" type="submit">update</button> &nbsp;&nbsp;
+      <button v-on:click="resetTodo()">Cancel</button>
       <br>
       <span v-if="!isValidate"> *Please enter a valid field</span>
     </form>
