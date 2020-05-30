@@ -2,9 +2,11 @@
   <div>
     <br />
     <form @submit.prevent="addTodo">
-      <input type="text" required v-model="title" name="title" />
+      <input type="text" v-model="title" name="title" />
       <button v-if="id==''" type="submit">Add</button>
       <button v-if="id!=''" type="submit">update</button>
+      <br>
+      <span v-if="!isValidate"> *Please enter a valid field</span>
     </form>
     <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" v-on:edit-todo="editTodo" />
   </div>
@@ -44,6 +46,7 @@ export default {
   },
   methods: {
     addTodo() {
+      if(!this.title=="" ){
       if (this.id) {
         this.todos.map(
           obj=>{
@@ -59,13 +62,19 @@ export default {
           completed: false
         };
         this.todos.push(newTodoObj);
+        this.isValidate=true
       }
+  }else{
+    this.isValidate=false
+  }
       this.title = "";
       this.id = "";
+      
     },
     deleteTodo(todoId) {
- this.todos = this.todos.filter(todo => todo.id !== todoId);
-      // 1 != 2
+      if (confirm("Are you sure you want to delete?")) {
+  this.todos = this.todos.filter(todo => todo.id !== todoId);
+}
     },
     editTodo(todo) {
       this.id = todo.id;
@@ -98,5 +107,8 @@ input {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+span{
+  color: crimson;
 }
 </style>
