@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <br />
     <table>
       <thead>
@@ -11,8 +12,8 @@
       </thead>
       <tbody v-bind:key="todo.id" v-for="todo in todos">
         <Todo
-          v-bind:todo="todo"
-          v-on:delete-todo="$emit('delete-todo', todo.id)"
+          :todo="todo"
+          @delete-todo="$emit('delete-todo', todo.id)"
           v-on:edit-todo="$emit('edit-todo', todo)"
         />
       </tbody>

@@ -11,7 +11,7 @@
       </div>
       
     </form>
-    <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" v-on:edit-todo="editTodo" />
+    <Todos v-bind:todos="todos" @delete-todo="deleteTodo" v-on:edit-todo="editTodo" />
   </div>
 </template>
 <script>
@@ -49,7 +49,6 @@ export default {
   },
   methods: {
     addTodo() {
-      debugger;
       if (!this.title.trim() == "") {
         if (this.id) {
           this.todos.map(obj => {
