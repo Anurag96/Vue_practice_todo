@@ -49,7 +49,7 @@ export default {
     methods: {
         searchTodo(value) {
             if (value) {
-                this.todos.filter
+                this.todos.filter(data=> data.title === value)
             } else {
                 this.todos = this.allTodos;
             }

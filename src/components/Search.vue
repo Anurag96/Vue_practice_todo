@@ -6,11 +6,12 @@
 
 <script>
 export default {
- 
+ props:{
+     isEnableSearch: Boolean
+ },
     data() {
       return{
-        search:'',
-        isEnableSearch: true
+        search:''
     }
     },
     methods: {
