@@ -2,7 +2,7 @@
   <div id="app">
     <Header/>
     <div class="main">
-      <AddTodo v-on:add-todo="addTodo"/>
+      <AddTodo />
     </div>
   </div>
 </template>

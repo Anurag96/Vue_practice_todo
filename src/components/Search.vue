@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         filterData() {
-            this.$emit('search-data', this.search)
+            this.$emit('searchData', this.search)
         }
     }
 }

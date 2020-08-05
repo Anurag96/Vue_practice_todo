@@ -1,7 +1,7 @@
 <template>
     <div>
         <br />
-        <Search is-enable-search="iEnable" @searchData="searchTodo"></Search>
+        <Search :is-enable-search="iEnable" @searchData="searchTodo"></Search>
         <br/>
         <table>
             <thead>
@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody v-bind:key="todo.id"
-                   v-for="todo in todos">
+                   v-for="todo in allTodos">
                 <Todo :todo="todo" 
                 @delete-todo="$emit('delete-todo', todo.id)"
                 v-on:edit-todo="$emit('edit-todo', todo)" />
@@ -39,19 +39,15 @@ export default {
             allTodos: []
         }
     },
-    mounted:{
-      filteredData(){
-        this.allTodos = this.todos
-      }
-     
-    }
-    ,
+    mounted() {
+         this.allTodos = this.todos
+    },
     methods: {
         searchTodo(value) {
             if (value) {
-                this.todos.filter(data=> data.title === value)
+                this.allTodos = this.allTodos.filter(data =>data.title.toLowerCase().indexOf(value.toLowerCase())>-1)
             } else {
-                this.todos = this.allTodos;
+                this.allTodos = this.todos;
             }
         }
     }
